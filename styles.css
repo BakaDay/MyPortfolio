@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    /* Three columns: one flexible, one auto-sized for nav, and one auto-sized for the button */
+    align-items: center;
+    /* Center items vertically */
+    padding: 1rem;
+    /* Optional: Add padding for better spacing */
+    text-align: center;
+    background-color: rgb(245, 235, 235);
+}
+
+header h1 {
+    grid-column: 1 / 2;
+    /* Span the first column */
+    margin: 0;
+    /* Remove default margin */
+}
+
+nav {
+    grid-column: 1 / 3;
+    /* Place in the second column */
+    justify-self: center;
+    /* Center the navigation links */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+main{
+    margin: 1%;
+}
+
+.toggleContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    border: 3px solid #343434;
+    border-radius: 20px;
+    background: #343434;
+    font-weight: bold;
+    color: #343434;
+    cursor: pointer;
+}
+
+.toggleContainer::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0%;
+    border-radius: 20px;
+    background: white;
+    transition: all 0.3s;
+}
+
+.toggleCheckbox:checked+.toggleContainer::before {
+    left: 50%;
+}
+
+.toggleContainer div {
+    padding: 6px;
+    text-align: center;
+    z-index: 1;
+}
+
+.toggleCheckbox {
+    display: none;
+}
+
+.toggleCheckbox:checked+.toggleContainer div:first-child {
+    color: white;
+    transition: color 0.3s;
+}
+
+.toggleCheckbox:checked+.toggleContainer div:last-child {
+    color: #343434;
+    transition: color 0.3s;
+}
+
+.toggleCheckbox+.toggleContainer div:first-child {
+    color: #343434;
+    transition: color 0.3s;
+}
+
+.toggleCheckbox+.toggleContainer div:last-child {
+    color: white;
+    transition: color 0.3s;
+}
+
+#dark-mode-toggle {
+    grid-column: 3 / 4;
+    /* Place in the third column */
+    justify-self: end;
+    /* Align the button to the right */
+    align-self: center;
+    /* Vertically center the button */
+    background-color: rgb(209, 192, 167);
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode button{
+    background-color: #333;
+        color: white;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    max-width: 400px;
+}
+
+form label {
+    margin: 0.5rem 0 0.25rem;
+}
+
+form input,
+form textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    justify-self: start;
+}
+
+form button {
+    padding: 0.5rem 1rem;
+    justify-self: start;
+    background-color: rgb(209, 192, 167);
+    color: #333;
+    border: 1px;
+    border-color: #333;
+    cursor: pointer;
+}
+
+footer {
+    background-color: rgb(245, 235, 235);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
