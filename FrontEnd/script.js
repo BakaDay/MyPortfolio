@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize EmailJS
-    // emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS user ID
-
     // Dark mode toggle
     document.body.classList.add('dark-mode');
     const toggleButton = document.getElementById('dark-mode-toggle');
