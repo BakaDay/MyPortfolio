@@ -1,0 +1,10 @@
+.footer {
+    background-color: $header-background-color-light;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    .dark-mode & {
+        background-color: $header-background-color-dark;
+    }
+}

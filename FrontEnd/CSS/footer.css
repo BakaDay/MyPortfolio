@@ -1,0 +1,10 @@
+footer {
+    background-color: rgb(245, 235, 235);
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dark-mode footer {
+    background-color: #1e1e1e;
+}

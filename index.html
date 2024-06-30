@@ -5,64 +5,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="frontend/css/styles.css">
+    <script type="module" src="frontend/js/main.js" defer></script>
 </head>
 
-<body>
-    <header>
-        <h1>Welcome to My Portfolio</h1>
+<body class="dark-mode">
+    <header class="header">
+        <h1 class="header__title">Welcome to My Portfolio</h1>
         <input type="checkbox" id="dark-mode-box" class="toggleCheckbox" />
-        <label for="dark-mode-box" class="toggleContainer" id="dark-mode-toggle">
+        <label for="dark-mode-box" class="toggleContainer dark-mode-toggle" id="dark-mode-toggle">
             <div>Dark</div>
             <div>Light</div>
         </label>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a jack of all trades that is passionate about using tech to achieve maximum efficiency.</p>
+    <main class="main">
+        <section id="about" class="about">
+            <h2 class="about__title">About Me</h2>
+            <p class="about__description">I am a jack of all trades that is passionate about using tech to achieve
+                maximum efficiency.</p>
         </section>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <ul>
-                <li><a href="#" id="todo-list-toggle">To-Do List App</a></li> <!-- Add link to toggle To-Do List -->
-                <!-- Add more projects here -->
+        <section id="projects" class="projects">
+            <h2 class="projects__title">My Projects</h2>
+            <ul class="projects__list">
+                <li class="projects__item"><a href="#" id="todo-list-toggle" class="projects__link">To-Do List App</a>
+                </li>
             </ul>
-            <section id="todo-list" class="collapsible"> <!-- To-Do List Section -->
-                <h2>To-Do List</h2>
-                <div class="todo-container">
-                    <form id="todo-form">
-                        <input type="text" id="todo-input" placeholder="Add a new task..." required>
-                        <button type="submit">Add Task</button>
+            <section id="todo-list" class="todo collapsible">
+                <h2 class="todo__title">To-Do List</h2>
+                <div class="todo__container">
+                    <form id="todo-form" class="todo__form">
+                        <input type="text" id="todo-input" placeholder="Add a new task..." class="todo__input" required>
+                        <button type="submit" class="todo__button">Add Task</button>
                     </form>
-                    <ul id="todo-items"></ul>
+                    <ul id="todo-items" class="todo__items"></ul>
                 </div>
             </section>
         </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form" class="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
+        <section id="contact" class="contact">
+            <h2 class="contact__title">Contact Me</h2>
+            <form id="contact-form" class="contact__form">
+                <label for="name" class="contact__label">Name:</label>
+                <input type="text" id="name" name="name" class="contact__input" required>
+                <label for="email" class="contact__label">Email:</label>
+                <input type="email" id="email" name="email" class="contact__input" required>
+                <label for="message" class="contact__label">Message:</label>
+                <textarea id="message" name="message" class="contact__textarea" required></textarea>
+                <button type="submit" class="contact__button">Send</button>
             </form>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
         <p>&copy; 2024 My Portfolio</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 
 </html>

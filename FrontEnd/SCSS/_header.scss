@@ -1,0 +1,58 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    background-color: $header-background-color-light;
+
+    &__title {
+        grid-column: 1 / 2;
+        margin: 0;
+    }
+
+    .nav {
+        grid-column: 1 / 2;
+        justify-self: center;
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        &__item {
+            margin-right: 1rem;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: $primary-color;
+        }
+    }
+
+    .dark-mode-toggle {
+        grid-column: 3 / 4;
+        justify-self: end;
+        align-self: center;
+        background-color: $button-background-color-light;
+        color: $primary-color;
+        border: none;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+
+    .dark-mode & {
+        background-color: $header-background-color-dark;
+
+        .nav__link {
+            color: $secondary-color;
+        }
+
+        .dark-mode-toggle {
+            background-color: $button-background-color-dark;
+            color: $secondary-color;
+        }
+    }
+}

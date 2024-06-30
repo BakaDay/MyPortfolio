@@ -1,0 +1,94 @@
+.todo__container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.todo__form {
+    display: flex;
+}
+
+.todo__input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.todo__button {
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.todo__items {
+    list-style: none;
+    padding: 0;
+}
+
+.todo__item {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo__item.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.todo__delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+body.dark-mode .todo__container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .todo__item {
+    background: #333;
+    color: white;
+}
+
+body.dark-mode .todo__item.completed {
+    color: #888;
+}
+
+body.dark-mode .todo__input,
+body.dark-mode .todo__textarea {
+    color: #ffffff;
+    background-color: #333;
+    border-color: #555;
+}
+
+body.dark-mode .todo__button {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .todo__delete {
+    background: red;
+    color: white;
+}
+
+.collapsible {
+    display: none;
+}
+
+.collapsible.expanded {
+    display: block;
+}

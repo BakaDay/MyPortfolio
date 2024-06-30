@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Dark mode toggle
     document.body.classList.add('dark-mode');
-    const toggleButton = document.getElementById('dark-mode-toggle');
     const toggleBox = document.getElementById('dark-mode-box');
 
-    toggleButton.addEventListener('click', () => {
+    toggleBox.addEventListener('change', () => {
         document.body.classList.toggle('dark-mode');
-        toggleBox.checked = !toggleBox.checked;
         applyDarkModeToTodo();
     });
 
@@ -148,6 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Apply dark mode to To-Do List on load if dark mode is enabled
+    // Initial application of dark mode styles
     applyDarkModeToTodo();
 });

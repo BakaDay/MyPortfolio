@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color-light;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.dark-mode {
+    background-color: $background-color-dark;
+    color: $secondary-color;
+}
+
+/* Dark mode hyperlink color */
+a {
+    color: $link-color;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+.dark-mode a {
+    color: $link-color-dark;
+
+    &:hover {
+        color: $link-hover-color-dark;
+    }
+}
