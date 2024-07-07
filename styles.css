@@ -1,9 +1,9 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @import 'variables';
- *   |         ^^^^^^^^^^^
- *   '
- *   frontend\scss\styles.scss 1:9  root stylesheet */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #a0d5e5;
+}
 
 html {
   scroll-behavior: smooth;
@@ -288,8 +288,60 @@ body.dark-mode .todo__item .todo__delete {
 }
 .collapsible.expanded {
   display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import 'variables';\d\a   \2502          ^^^^^^^^^^^\a   \2575 \a   frontend\\scss\\styles.scss 1:9  root stylesheet";
 }
+
+.toggleCheckbox {
+  display: none;
+}
+
+.toggleContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  border: 3px solid #343434;
+  border-radius: 20px;
+  background: #343434;
+  font-weight: bold;
+  color: #343434;
+  cursor: pointer;
+}
+.toggleContainer::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0%;
+  border-radius: 20px;
+  background: white;
+  transition: all 0.3s;
+}
+.toggleCheckbox:checked + .toggleContainer::before {
+  left: 50%;
+}
+.toggleContainer div {
+  padding: 6px;
+  text-align: center;
+  z-index: 1;
+}
+.toggleContainer .toggleCheckbox {
+  display: none;
+}
+.toggleContainer .toggleCheckbox + div:first-child {
+  color: #343434;
+  transition: color 0.3s;
+}
+.toggleContainer .toggleCheckbox + div:last-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleContainer .toggleCheckbox:checked + div:first-child {
+  color: white;
+  transition: color 0.3s;
+}
+.toggleContainer .toggleCheckbox:checked + div:last-child {
+  color: #343434;
+  transition: color 0.3s;
+}
+
+/*# sourceMappingURL=styles.css.map */
