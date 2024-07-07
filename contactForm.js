@@ -1,3 +1,5 @@
+import emailjs from 'emailjs-com';
+
 export function initializeContactForm() {
     const form = document.getElementById('contact-form');
 
@@ -17,15 +19,20 @@ export function initializeContactForm() {
             return;
         }
 
-        // Call your backend service or API here
-        showMessage('Form submitted successfully!', 'success');
-        form.reset();
+        // Send the email using EmailJS
+        emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, {
+            name: name,
+            email: email,
+            message: message
+        }, process.env.REACT_APP_EMAILJS_USER_ID)
+            .then((response) => {
+                showMessage('Form submitted successfully!', 'success');
+                form.reset();
+            }, (error) => {
+                console.error('Failed to send message:', error);
+                showMessage('Failed to send message. Please try again.', 'error');
+            });
     });
-}
-
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
 }
 
 function showMessage(message, type) {
@@ -36,4 +43,9 @@ function showMessage(message, type) {
     setTimeout(() => {
         document.body.removeChild(messageContainer);
     }, 3000);
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
 }
