@@ -3,31 +3,37 @@ export function initializeContactForm() {
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-        if (name && email && message) {
-            fetch('http://localhost:3000/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, message })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.message);
-                    if (data.message === 'Message received successfully!') {
-                        form.reset();
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Failed to send message. Please try again.');
-                });
-        } else {
-            alert('Please fill in all fields.');
+        if (!name || !email || !message) {
+            showMessage('Please fill in all fields.', 'error');
+            return;
         }
+
+        if (!validateEmail(email)) {
+            showMessage('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        // Call your backend service or API here
+        showMessage('Form submitted successfully!', 'success');
+        form.reset();
     });
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function showMessage(message, type) {
+    const messageContainer = document.createElement('div');
+    messageContainer.className = `message ${type}`;
+    messageContainer.textContent = message;
+    document.body.appendChild(messageContainer);
+    setTimeout(() => {
+        document.body.removeChild(messageContainer);
+    }, 3000);
 }

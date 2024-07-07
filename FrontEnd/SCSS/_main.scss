@@ -85,3 +85,68 @@
     }
 }
 }
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin: 0.5rem 0 0.25rem;
+    }
+
+    &__input,
+    &__textarea {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    &__button {
+        padding: 0.5rem 1rem;
+        background-color: $button-background-color-light;
+        color: $primary-color;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($button-background-color-light, 10%);
+        }
+    }
+
+    .dark-mode & {
+
+        &__input,
+        &__textarea {
+            background-color: $background-color-dark;
+            color: $secondary-color;
+            border-color: #555;
+        }
+
+        &__button {
+            background-color: $button-background-color-dark;
+            color: $secondary-color;
+
+            &:hover {
+                background-color: lighten($button-background-color-dark, 10%);
+            }
+        }
+    }
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #fff;
+
+    &.success {
+        background-color: #4CAF50;
+    }
+
+    &.error {
+        background-color: #f44336;
+    }
+}

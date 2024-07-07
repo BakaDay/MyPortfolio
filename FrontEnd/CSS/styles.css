@@ -5,10 +5,288 @@
  *   '
  *   frontend\scss\styles.scss 1:9  root stylesheet */
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
+html {
+  scroll-behavior: smooth;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #888;
+}
+
+/* Dark mode hyperlink color */
+a {
+  color: #888;
+}
+a:hover {
+  color: #333;
+}
+
+.dark-mode a {
+  color: #888;
+}
+.dark-mode a:hover {
+  color: #333;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgb(245, 235, 235);
+}
+.header__title {
+  grid-column: 1/2;
+  margin: 0;
+}
+.header .nav {
+  grid-column: 1/2;
+  justify-self: center;
+}
+.header .nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.header .nav__item {
+  margin-right: 1rem;
+}
+.header .nav__link {
+  text-decoration: none;
+  color: #333;
+}
+.header .dark-mode-toggle {
+  grid-column: 3/4;
+  justify-self: end;
+  align-self: center;
+  background-color: rgb(209, 192, 167);
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.dark-mode .header {
+  background-color: #1e1e1e;
+}
+.dark-mode .header .nav__link {
+  color: #888;
+}
+.dark-mode .header .dark-mode-toggle {
+  background-color: #333;
+  color: #888;
+}
+
+.footer {
+  background-color: rgb(245, 235, 235);
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+.dark-mode .footer {
+  background-color: #1e1e1e;
+}
+
+.main {
+  margin: 1%;
+}
+.main .about {
+  margin-bottom: 2rem;
+}
+.main .about__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.main .about__description {
+  font-size: 1.2rem;
+}
+.main .projects {
+  margin-bottom: 2rem;
+}
+.main .projects__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.main .projects__list {
+  list-style: none;
+  padding: 0;
+}
+.main .projects__item {
+  margin-bottom: 1rem;
+}
+.main .contact {
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+.main .contact__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.main .contact__form {
+  display: flex;
+  flex-direction: column;
+}
+.main .contact__form__label {
+  margin: 0.5rem 0 0.25rem;
+}
+.main .contact__form__input, .main .contact__form__textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.main .contact .contact__button {
+  padding: 0.5rem 1rem;
+  background-color: rgb(209, 192, 167) !important;
+  color: #333 !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+.main .contact .contact__button:hover {
+  background-color: #bfa886 !important;
+}
+.dark-mode .main .contact .contact__button {
+  background-color: #333 !important;
+  color: #888 !important;
+}
+.dark-mode .main .contact .contact__button:hover {
+  background-color: #4d4d4d !important;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+}
+.contact__form__label {
+  margin: 0.5rem 0 0.25rem;
+}
+.contact__form__input, .contact__form__textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.contact__form__button {
+  padding: 0.5rem 1rem;
+  background-color: rgb(209, 192, 167);
+  color: #333;
+  border: none;
+  cursor: pointer;
+}
+.contact__form__button:hover {
+  background-color: #bfa886;
+}
+.dark-mode .contact__form__input, .dark-mode .contact__form__textarea {
+  background-color: #121212;
+  color: #888;
+  border-color: #555;
+}
+.dark-mode .contact__form__button {
+  background-color: #333;
+  color: #888;
+}
+.dark-mode .contact__form__button:hover {
+  background-color: #4d4d4d;
+}
+
+.message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+}
+.message.success {
+  background-color: #4CAF50;
+}
+.message.error {
+  background-color: #f44336;
+}
+
+.todo__container {
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+body.dark-mode .todo__container {
+  background-color: #1e1e1e;
+}
+
+.todo__form {
+  display: flex;
+}
+
+.todo__input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+body.dark-mode .todo__input {
+  color: #888;
+  background-color: #333;
+  border-color: #555;
+}
+
+.todo__button {
+  padding: 10px;
+  border: none;
+  background-color: rgb(209, 192, 167);
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+body.dark-mode .todo__button {
+  background-color: #333;
+  color: #888;
+}
+
+.todo__items {
+  list-style: none;
+  padding: 0;
+}
+
+.todo__item {
+  background: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo__item.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+body.dark-mode .todo__item {
+  background: #333;
+  color: #888;
+}
+body.dark-mode .todo__item.completed {
+  color: #888;
+}
+.todo__item .todo__delete {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+body.dark-mode .todo__item .todo__delete {
+  background: red;
+  color: white;
+}
+
+.collapsible {
+  display: none;
+}
+.collapsible.expanded {
   display: block;
   padding: 1em;
   margin-bottom: 1em;
