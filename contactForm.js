@@ -1,7 +1,10 @@
-import emailjs from 'emailjs-com';
+import emailjs from 'emailjs';
 
 export function initializeContactForm() {
     const form = document.getElementById('contact-form');
+    emailjs.init({
+        PublicKey: '1oZm-RJNnJc_9a2it'
+    })
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -20,7 +23,7 @@ export function initializeContactForm() {
         }
 
         // Send the email using EmailJS
-        emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, {
+        emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, {
             name: name,
             email: email,
             message: message
